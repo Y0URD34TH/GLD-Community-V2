@@ -1,0 +1,113 @@
+$bg: #1B1B1B;
+$bbg: #141414;
+$fg: #292929;
+$text: #C7C7C7;
+
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+
+:root {
+    background-color: $bg; 
+    font-family: "Titillium Web";
+    color: $text;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-radius: 10px;
+    padding: 0 25px;
+    background-color: $fg;
+
+    height: 60px;
+
+    a {
+        color: $text;
+
+        #search-icon,
+        #settings-icon { 
+            transition: all 0.2s ease-in-out;
+            padding: 15px 10px;
+        }
+
+        #logo {
+            width: 50px;
+            height: 50px;
+
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                cursor: pointer;
+                transform: 
+                    translateX(10px);            
+            }
+        }
+
+        #avatar {
+            position: relative;
+            top: -11px;
+
+            width: 39px;
+            height: 39px;
+            padding-left: 10px;
+            
+            border-radius: 100%;
+
+            transition: all 0.2s ease-in-out;
+
+            cursor: pointer;
+        }
+    }
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .login, .register {
+        display: flex;
+        flex-direction: column;
+
+        background-color: $fg;
+        border-radius: 10px;
+
+        height: 300px;
+
+        margin: 20px;        
+        padding: 20px;
+       
+        position: relative;
+        top: 4rem;
+        
+        span {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-align: center;
+
+            padding: 0 0 10px 0;
+        }
+
+        input, button {
+            background-color: lighten($fg, 5%);
+            color: $text;
+
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+    
+            padding: 10px;
+            margin: 10px 0;
+
+            transition: all 0.2s ease-in-out;
+            
+            &:hover,
+            &:active,
+            &:focus {
+                cursor: pointer;
+                background-color: darken($fg, 5%);
+            }
+        }
+    }
+}

@@ -1,0 +1,233 @@
+$bg: #1B1B1B;
+$bbg: #141414;
+$fg: #292929;
+$text: #C7C7C7;
+
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+
+#flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 40px;
+
+    #user-page {
+        width: 80%;
+        background-color: $bg;
+
+        #header {
+            background-color: $fg;
+            color: $text;
+            border-radius: 10px;
+
+            padding: 20px;
+
+            #avatar {
+                display: flex;
+                flex-direction: row;
+
+                #info {
+                    flex-direction: column;
+                    flex-grow: 1;
+
+                    p {
+                        font-size: 2rem;
+                        font-weight: 800;
+                        font-family: "Titillium Web";
+
+                        padding-left: 20px;
+                        margin: 0 0 0 0;
+
+                        &#online {
+                            color: rgb(82, 208, 82);
+                        }
+
+                        &#desc {
+                            font-size: 1rem;
+                            font-weight: 400;
+                            font-family: "Titillium Web";
+
+                            margin-top: 0px;
+
+                        }
+                    }
+                } 
+                
+                #follow {
+                    background-color: lighten($fg, 5%);
+                    color: $text;
+
+                    border: none;
+                    border-radius: 10px;
+                    font-size: 1rem;
+
+                    padding: 10px;
+
+                    margin: 25px 0;
+
+                    transition: all 0.2s ease-in-out;
+
+                    &:hover,
+                    &:active {
+                        cursor: pointer;
+                        background-color: darken($fg, 5%);
+                    }
+                }
+
+                img {
+                    width: 100px;
+                    height: 100px;
+                    
+                    border-radius: 5px;
+                }
+            }
+        }   
+        
+        .bottom {
+            display: flex;
+            flex-direction: row;
+
+            .followers {
+                padding: 10px;
+                flex-grow: 0.2;
+                margin: 10px 0 10px 0;                
+
+                background-color: $fg;
+                border-radius: 10px;
+
+                > span {
+                    font-size: 1.2rem;
+                    font-weight: 800;
+
+                    &#small-n {
+                        font-size: 1rem;
+                    }
+                }
+
+                a {
+                    display: flex;
+                    flex-direction: row;
+                    
+                    margin-top: 10px;
+
+                    color: $text;
+                    text-decoration: none;
+
+                    img {
+                        width: 60px;
+                        height: 60px;
+
+                        border-radius: 10px;
+                    }
+
+                    #info {
+                        padding-left: 10px;
+                        display: flex;
+                        flex-direction: column;
+
+                        p {
+                            margin: 0;
+                            font-weight: 700;
+                            font-size: 1;
+
+                            &#online {
+                                color: rgb(82, 208, 82);
+                            }
+
+                            &#tag {
+                                font-weight: 400;
+                                font-size: 1rem;
+                                color: darken($text, 20%);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .recent {
+                padding-right: 10px;
+                flex-grow: 1;
+                
+                #info {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    background-color: $fg;
+                    border-radius: 10px;
+                    margin-top: 10px;
+                    padding: 0 20px;
+
+                    p#small-n,
+                    p.small {
+                        font-size: 13px;
+                    }
+                }   
+
+                #games {
+
+                    #game {
+                        display: flex;
+                        flex-direction: row;
+
+                        background-color: $fg;
+                        border-radius: 10px;
+
+                        margin: 10px 0;
+                        padding: 10px;
+
+                        &.small {
+                            height: 90px;
+                        }
+
+                        img {
+                            width: 250px;
+                            height: 117px;
+                            border-radius: 5px;
+
+                            &#small {
+                                width: 150px;
+                                height: 70px;
+                            }
+                        }
+
+                        #info {
+                            display: flex;
+                            flex-direction: column;
+                            height: 50px;
+
+                            &.small {
+                                position: relative;
+                                top: -10px;
+                            }
+
+                            p {
+                                font-size: 1.5rem;
+                                font-weight: 800;
+                                font-family: "Titillium Web";
+
+                                margin: 0;
+                                
+                                &.small {
+                                    font-size: 0.6rem !important;
+                                    font-weight: 800;
+                                }
+                                
+                                &#time {
+                                    font-size: 1rem;
+                                    font-weight: 400;
+                                }
+
+                                &#small-n {
+                                    font-size: 1rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

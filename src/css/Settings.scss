@@ -1,0 +1,132 @@
+$bg: #1B1B1B;
+$bbg: #141414;
+$fg: #292929;
+$text: #C7C7C7;
+
+#settings {
+    display: flex;
+    flex-direction: column;
+
+    background-color: $fg;
+    border-radius: 10px;
+    padding: 20px;
+
+    position: relative;
+    top: 4rem;
+
+    width: 500px;
+
+    h1 { margin-bottom: 0px; }
+
+    #pfp {
+        display: flex;
+        flex-direction: row;
+        padding: 20px 0;
+
+        img {
+            width: 100px;
+            height: 100px;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .toggles {
+            display: flex;
+            flex-direction: column;
+            background-color: darken($fg, 2%);
+            flex-grow: 1;
+
+            height: 110px;
+
+            margin: 0 0 0 20px;
+            padding: 5px 10px;
+
+            border-radius: 10px;
+
+            input[type="checkbox"] {
+                appearance: none;
+                position: relative;
+
+                top: 8px;
+
+                border-radius: 10px;
+                cursor: pointer;
+
+                margin-left: 10px; 
+                width: 20px;
+                height: 20px;
+
+                background-color: lighten($fg, 10%);
+                transition: all 0.2s ease-in-out;
+
+                &:checked {
+                    background-color: lighten($fg, 60%);
+                }
+            }
+        }
+    }
+
+    #inputs {
+        display: flex;
+        flex-direction: column;
+
+        input, textarea {
+            background-color: lighten($fg, 5%);
+            color: $text;
+
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+    
+            padding: 10px;
+            margin: 10px 0;
+
+            transition: all 0.2s ease-in-out;
+            
+            &:hover,
+            &:active,
+            &:focus {
+                cursor: pointer;
+                background-color: darken($fg, 5%);
+            }
+        }
+    }
+    .btns {
+        display: flex;
+        flex-direction: row;
+
+        button {
+            background-color: lighten($fg, 5%);
+            color: $text;
+
+            flex-grow: 1;
+
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+
+            padding: 10px;
+            margin: 10px 0;
+
+            transition: all 0.2s ease-in-out;
+
+            &:hover,
+            &:active {
+                cursor: pointer;
+                background-color: darken($fg, 5%);
+            }
+
+            &.logout {
+                margin-left: 10px;
+            
+                background-color: #920000;
+            }            
+        }
+    }
+}
