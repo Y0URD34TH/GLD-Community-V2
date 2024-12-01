@@ -235,12 +235,17 @@ $text: #C7C7C7;
                                 top: 0px;
                                 font-size: 0.6rem;
 
+                                #text {
+                                    top: 1px;
+                                }
+
                                 progress {
                                     max-height: 5px;
+                                    
                                 }
 
                                 .ach-icon {
-                                    width: 20px;
+                                    width: 18px;
                                 }
                             }
 
