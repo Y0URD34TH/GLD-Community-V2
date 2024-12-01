@@ -11,6 +11,15 @@ $text: #C7C7C7;
     color: $text;
 }
 
+.example::-webkit-scrollbar {
+    display: none;
+}
+  
+.example {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+} 
+
 nav {
     display: flex;
     justify-content: space-between;

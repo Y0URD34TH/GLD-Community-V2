@@ -191,7 +191,6 @@
                                                                 class="ach-icon"
                                                             >
                                                         </Tooltip>
-    
                                                     {/each}
                                                 </span>
                                             </Link>
