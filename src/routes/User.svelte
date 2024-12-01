@@ -183,7 +183,7 @@
 
                                             <Link to="/nuh-uh">
                                                 <span id="ach" class={navigator.userAgent.includes("ProjectGLD") ? "small" : ""}>
-                                                    {#each game.unlockedachievements.slice(0, 5) as unlAch}
+                                                    {#each game.unlockedachievements.slice(0, 4) as unlAch}
                                                         <Tooltip tip={unlAch.displayName} color="#141414" top>
                                                             <img
                                                                 src={unlAch.icon} 
@@ -197,7 +197,7 @@
                                             </Link>
 
                                             <span id="text" class="plus">
-                                                {#if game.unlockedachievements.length > 5}
+                                                {#if game.unlockedachievements.length > 4}
                                                     +{game.unlockedachievements.length - 4}
                                                 {/if}
                                             </span>
