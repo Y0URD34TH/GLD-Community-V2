@@ -23,6 +23,7 @@
     "pocketbase": "^0.20.3",
     "sass": "^1.69.7",
     "steamgriddb": "^2.1.1",
+    "sv-tooltip": "^0.2.3",
     "svelte-ionicons": "^0.7.2",
     "svelte-routing": "^2.11.0"
   }

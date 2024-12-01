@@ -170,7 +170,7 @@ $text: #C7C7C7;
 
                     #game {
                         display: flex;
-                        flex-direction: row;
+                        flex-direction: column;
 
                         background-color: $fg;
                         border-radius: 10px;
@@ -182,6 +182,20 @@ $text: #C7C7C7;
                             height: 90px;
                         }
 
+
+                        #ach {
+                            .ach-icon {
+                                position: relative;
+                    
+                                width: 30px;
+                                height: auto;
+
+                                margin: 5px 5px 0px 0;
+
+                                //top: 6px
+                            }
+                        }
+
                         img {
                             width: 250px;
                             height: 117px;
@@ -190,6 +204,59 @@ $text: #C7C7C7;
                             &#small {
                                 width: 150px;
                                 height: 70px;
+                            }
+                        }
+
+                        #separator {
+                            display: flex;
+                            flex-direction: row;
+                        }
+
+                        #ach-separator {
+                            position: relative;
+
+                            top: 6px;
+
+                            display: flex;
+                            flex-direction: row;
+
+                            align-items: center;
+
+                            #text {
+                                position: inherit;
+                                top: -1px;
+                            }
+
+                            .plus {
+                                font-weight: bold;
+                            }
+
+                            &.small {
+                                top: 0px;
+                                font-size: 0.6rem;
+
+                                progress {
+                                    max-height: 5px;
+                                }
+
+                                .ach-icon {
+                                    width: 20px;
+                                }
+                            }
+
+                            progress {
+                                border: 0 solid black;
+                                border-radius: 10px;
+                                background-color: #1B1B1B;
+
+                                max-height: 10px;
+                                flex-grow: 1;
+
+                                margin: 0 10px;
+
+                                &::-webkit-progress-value, &::-moz-progress-bar {
+                                    background-color: #C7C7C7;
+                                }
                             }
                         }
 

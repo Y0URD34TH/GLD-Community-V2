@@ -1,10 +1,12 @@
 <script lang="ts">
     import "../css/User.scss"
     import { getUser, pb, authStore, followUser, unfollowUser } from "../scripts/Pocketbase";
+    import Tooltip from "sv-tooltip";
     import { getGames } from "../scripts/SGDB";
     import { writable } from "svelte/store";
     import { onMount, onDestroy } from "svelte";
     import { convertIsoDate, convertDurationToHours } from "../scripts/DateConv"
+  import { Link } from "svelte-routing";
     export let user: string | undefined = undefined;
 
     if (user === undefined) {
@@ -143,28 +145,73 @@
                         </span>
                         <div id="games">
                             {#each user.games as game, i}
-
                                 <!-- set height of #game based on height of #info -->
                                 <div id="game" class={navigator.userAgent.includes("ProjectGLD") ? "small" : ""}
                                 >
-                                    {#if navigator.userAgent.includes("ProjectGLD")}
-                                        <img id="small" src="{$games[i] || "https://via.placeholder.com/920x430"}" alt="game">
-                                    {:else}
-                                        <img src="{$games[i] || "https://via.placeholder.com/920x430"}" alt="game">
-                                    {/if}
-
-                                    <!-- set height of #game based on height of #info -->
-                                    <span id="info" class={navigator.userAgent.includes("ProjectGLD") ? "small" : ""} >
+                                    <div id="separator">
                                         {#if navigator.userAgent.includes("ProjectGLD")}
-                                            <p id="small-n">{game.name}</p>
-                                            <p id="time" class="small">Time played: {convertDurationToHours(game.playedTime || "") + " hour(s)"} played</p>
-                                            <p id="time" class="small">Last played: {convertIsoDate(game.LastPlayed) || "Never"}</p> 
+                                            <img id="small" src="{$games[i] || "https://via.placeholder.com/920x430"}" alt="game">
                                         {:else}
-                                            <p>{game.name}</p>
-                                            <p id="time">Time played: {convertDurationToHours(game.playedTime || "") + " hour(s)"} played</p>
-                                            <p id="time">Last played: {convertIsoDate(game.LastPlayed) || "Never"}</p> 
+                                            <img src="{$games[i] || "https://via.placeholder.com/920x430"}" alt="game">
                                         {/if}
-                                    </span>
+
+                                        <!-- set height of #game based on height of #info -->
+                                        <span id="info" class={navigator.userAgent.includes("ProjectGLD") ? "small" : ""} >
+                                            {#if navigator.userAgent.includes("ProjectGLD")}
+                                                <p id="small-n">{game.name}</p>
+                                                <p id="time" class="small">Time played: {convertDurationToHours(game.playedTime || "") + " hour(s)"} played</p>
+                                                <p id="time" class="small">Last played: {convertIsoDate(game.LastPlayed) || "Never"}</p> 
+                                            {:else}
+                                                <p>{game.name}</p>
+                                                <p id="time">Time played: {convertDurationToHours(game.playedTime || "") + " hour(s)"} played</p>
+                                                <p id="time">Last played: {convertIsoDate(game.LastPlayed) || "Never"}</p> 
+                                            {/if}
+                                        </span>
+                                    </div>
+
+                                    {#if game.lockedachievements.length + game.unlockedachievements.length !== 0}
+                                        <div id="ach-separator" class={navigator.userAgent.includes("ProjectGLD") ? "small" : ""}>
+                                            <span id="text">
+                                                <b>Achievement Progress</b>
+                                                {game.unlockedachievements.length}/{game.lockedachievements.length}
+                                            </span>
+
+                                            <progress 
+                                                value={game.unlockedachievements.length} 
+                                                max={game.lockedachievements.length + game.unlockedachievements.length}
+                                            />
+
+                                            <Link to="/nuh-uh">
+                                                <span id="ach" class={navigator.userAgent.includes("ProjectGLD") ? "small" : ""}>
+                                                    {#each game.unlockedachievements.slice(0, 5) as unlAch}
+                                                        <Tooltip tip={unlAch.displayName} color="#141414" top>
+                                                            <img
+                                                                src={unlAch.icon} 
+                                                                alt={`${unlAch.displayName}; ${unlAch.description}`} 
+                                                                class="ach-icon"
+                                                            >
+                                                        </Tooltip>
+    
+                                                    {/each}
+                                                </span>
+                                            </Link>
+
+                                            <span id="text" class="plus">
+                                                {#if game.unlockedachievements.length > 5}
+                                                    +{game.unlockedachievements.length - 4}
+                                                {/if}
+                                            </span>
+
+
+                                            <!-- <span id="ach" class={navigator.userAgent.includes("ProjectGLD") ? "small" : ""}>
+                                                {#each game.lockedachievements as lockAch, i}
+                                                    {#if i < 6}
+                                                        <img src={lockAch.icongray} alt={`${lockAch.displayName}; ${lockAch.description}`} class="ach-icon">    
+                                                    {/if}
+                                                {/each}
+                                            </span>  -->
+                                        </div>
+                                    {/if}
                                 </div>
                             {/each}
                         </div>

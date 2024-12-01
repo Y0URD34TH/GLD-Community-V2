@@ -6,6 +6,7 @@
   import Search from "./routes/Search.svelte";
   import User from "./routes/User.svelte";
   import Settings from "./routes/Settings.svelte"
+  import NuhUh from "./routes/NuhUh.svelte";
 </script>
 
 <Router>
@@ -39,6 +40,7 @@
   <div>
     <Route path="/" component={Home} />
     <Route path="/search" component={Search} />
+    <Route path="/nuh-uh" component={NuhUh} />
     <Route path="/u/:user" let:params>
       <User user="{params.user}"/>
     </Route>
