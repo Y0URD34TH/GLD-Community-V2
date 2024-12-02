@@ -17,7 +17,7 @@ $text: #C7C7C7;
 
             &:focus {
                 cursor: pointer;
-                background-color: darken($fg, 5%);
+                background-color: darken($fg, 0.5%);
             }
 
         }
@@ -43,7 +43,7 @@ $text: #C7C7C7;
             &:hover,
             &:active {
                 cursor: pointer;
-                background-color: darken($fg, 5%);
+                background-color: darken($fg, 0.5%);
             }
         }
     }
