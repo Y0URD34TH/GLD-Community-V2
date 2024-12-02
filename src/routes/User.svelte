@@ -159,17 +159,25 @@
                                         <span id="info" class={navigator.userAgent.includes("ProjectGLD") ? "small" : ""} >
                                             {#if navigator.userAgent.includes("ProjectGLD")}
                                                 <p id="small-n">{game.name}</p>
-                                                <p id="time" class="small">Time played: {convertDurationToHours(game.playedTime || "") + " hour(s)"} played</p>
+                                                <p id="time" class="small">Time played: {
+                                                    Math.floor(convertDurationToHours(game.playedTime || "") * 100) / 100 + " hour(s)"
+                                                } played</p>
                                                 <p id="time" class="small">Last played: {convertIsoDate(game.LastPlayed) || "Never"}</p> 
                                             {:else}
                                                 <p>{game.name}</p>
-                                                <p id="time">Time played: {convertDurationToHours(game.playedTime || "") + " hour(s)"} played</p>
+                                                <p id="time">Time played: {
+                                                    Math.floor(convertDurationToHours(game.playedTime || "") * 100) / 100 + " hour(s)"
+                                                } played</p>
                                                 <p id="time">Last played: {convertIsoDate(game.LastPlayed) || "Never"}</p> 
                                             {/if}
                                         </span>
                                     </div>
 
-                                    {#if game.lockedachievements.length + game.unlockedachievements.length !== 0}
+                                    {#if
+                                        game.lockedachievements && 
+                                        game.unlockedachievements &&
+                                        game.lockedachievements.length + game.unlockedachievements.length !== 0
+                                    }
                                         <div id="ach-separator" class={navigator.userAgent.includes("ProjectGLD") ? "small" : ""}>
                                             <span id="text">
                                                 <b>Achievement Progress</b>
